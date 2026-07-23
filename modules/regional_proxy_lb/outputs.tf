@@ -30,3 +30,8 @@ output "tcp_proxy" {
   description = "The TCP proxy used by this module."
   value       = google_compute_region_target_tcp_proxy.default.self_link
 }
+
+output "load_balancer_ip" {
+  description = "Regional Proxy Network Load Balancer IP"
+  value       = google_compute_forwarding_rule.default.ip_address
+}
