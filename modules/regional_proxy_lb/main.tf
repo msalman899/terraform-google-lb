@@ -89,6 +89,12 @@ resource "google_compute_region_backend_service" "default" {
     sample_rate = var.backend.log_config.sample_rate
 
   }
+
+  lifecycle {
+    ignore_changes = [
+      backend
+    ]
+  }
 }
 
 resource "google_compute_region_health_check" "default" {
