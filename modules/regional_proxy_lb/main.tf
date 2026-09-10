@@ -63,7 +63,7 @@ resource "google_compute_region_backend_service" "default" {
   protocol              = local.ip_protocol
   port_name             = var.backend.backend_type == "INSTANCE_GROUP" ? var.backend.port_name : null
   load_balancing_scheme = local.load_balancing_scheme
-  timeout_sec           = 10
+  timeout_sec           = var.backend.timeout_sec != null ? var.backend.timeout_sec : var.timeout_sec
   health_checks         = [google_compute_region_health_check.default.id]
   dynamic "backend" {
     for_each = toset(var.backend.groups)
