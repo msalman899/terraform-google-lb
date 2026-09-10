@@ -46,6 +46,12 @@ variable "network_project" {
   description = "Name of the project where the network resides. Useful for shared VPC. Default is var.project."
 }
 
+variable "timeout_sec" {
+  description = "Timeout for backend service"
+  type        = number
+  default     = 10
+}
+
 variable "create_firewall_rules" {
   description = "Whether to create firewall rules for health check and proxy"
   type        = bool
